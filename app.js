@@ -10,12 +10,13 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use('/api/v1/tasks', tasks);
 
+const port = 3000;
 const start = async () => {
     try {
         await connectDB(process.env.MONGO_URI);
-        app.listen(3000, console.log("running"));
+        app.listen(port, console.log(`Server Running of port ${port}...`));
     } catch (err) {
         console.log(err);
     }
 }
-start()
+start();
